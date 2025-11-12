@@ -4,6 +4,10 @@ pkgs.mkShell {
   name = "carbonyl-dev";
 
   buildInputs = with pkgs; [
+    # Development tools
+    just
+    patchelf
+
     # Rust toolchain
     rustc
     cargo
@@ -78,15 +82,9 @@ pkgs.mkShell {
 
   shellHook = ''
     echo "Carbonyl development environment"
-    echo "================================"
     echo ""
-    echo "Available commands:"
-    echo "  cargo build          - Build the Rust library"
-    echo "  cargo test           - Run tests"
-    echo "  ./scripts/build.sh   - Build complete project (requires Chromium)"
-    echo ""
-    echo "Rust version: $(rustc --version)"
-    echo "Cargo version: $(cargo --version)"
+    echo "Quick start: just setup && just run https://example.com"
+    echo "Available commands: just --list"
     echo ""
 
     # Set up environment variables for Chromium builds if needed

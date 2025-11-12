@@ -40,6 +40,34 @@ $ npm install --global carbonyl
 $ carbonyl https://github.com
 ```
 
+### Nix + Just (Development)
+
+If you're using Nix, this repository includes a `shell.nix` for a complete development environment and a `justfile` for common tasks.
+
+```shell
+# Enter the Nix development shell
+$ nix-shell
+
+# One-time setup: build, download runtime, and patch for NixOS
+$ just setup
+
+# Run carbonyl
+$ just run https://example.com
+
+# Quick test with example.com
+$ just test
+
+# See all available commands
+$ just
+```
+
+Or run directly without entering the shell:
+
+```shell
+$ nix-shell --run "just setup"
+$ nix-shell --run "just run https://github.com"
+```
+
 ### Binaries
 
 - [macOS amd64](https://github.com/fathyb/carbonyl/releases/download/v0.0.3/carbonyl.macos-amd64.zip)
